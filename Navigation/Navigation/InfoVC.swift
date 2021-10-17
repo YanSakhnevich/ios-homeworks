@@ -1,44 +1,34 @@
 //
-//  FeedVC.swift
+//  InfoVC.swift
 //  Navigation
 //
-//  Created by Yan Sakhnevich on 16.10.2021.
+//  Created by Yan Sakhnevich on 17.10.2021.
 //
 
 import UIKit
 
-class FeedVC: UIViewController {
-    
-    private let titlePostVC = Post(title: "Some Post")
-    
+class InfoVC: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = .tintColor
+        view.isOpaque = false
         
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         view.addSubview(button)
         button.center = view.center
         button.backgroundColor = .systemGray
-        button.setTitle("Go to Post", for: .normal)
+        button.setTitle("Try it", for: .normal)
         button.layer.cornerRadius = 10
         button.addTarget(
             self,
             action: #selector(didTapButton),
             for: .touchUpInside
         )
-   
     }
-   
-    
+
     @objc func didTapButton() {
-        let post = PostVC(titlePost: titlePostVC.title)
-        navigationController?.pushViewController(post, animated: true)
+        Alert.showIncompleteFormAlert(on: self)
     }
+
 }
-
-struct Post {
-    let title: String
-}
-
-
-

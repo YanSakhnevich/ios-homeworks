@@ -14,6 +14,8 @@
 		C8773B0A271A4AE700C5E0B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8773B08271A4AE700C5E0B9 /* LaunchScreen.storyboard */; };
 		C8773B12271A73F700C5E0B9 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8773B11271A73F700C5E0B9 /* FeedVC.swift */; };
 		C8773B14271A743300C5E0B9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8773B13271A743300C5E0B9 /* ProfileVC.swift */; };
+		C8F8A315271B921D00E0FF71 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F8A314271B921D00E0FF71 /* InfoVC.swift */; };
+		C8F8A317271BA00700E0FF71 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F8A316271BA00700E0FF71 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		C8773B0B271A4AE700C5E0B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8773B11271A73F700C5E0B9 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		C8773B13271A743300C5E0B9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C8F8A314271B921D00E0FF71 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
+		C8F8A316271BA00700E0FF71 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				C8773B11271A73F700C5E0B9 /* FeedVC.swift */,
 				C8773B13271A743300C5E0B9 /* ProfileVC.swift */,
 				C86B52DF271AA33800B1910D /* PostVC.swift */,
+				C8F8A314271B921D00E0FF71 /* InfoVC.swift */,
+				C8F8A316271BA00700E0FF71 /* Alert.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -144,7 +150,9 @@
 				C8773B12271A73F700C5E0B9 /* FeedVC.swift in Sources */,
 				C8773AFE271A4AE500C5E0B9 /* AppDelegate.swift in Sources */,
 				C8773B00271A4AE500C5E0B9 /* SceneDelegate.swift in Sources */,
+				C8F8A315271B921D00E0FF71 /* InfoVC.swift in Sources */,
 				C86B52E0271AA33800B1910D /* PostVC.swift in Sources */,
+				C8F8A317271BA00700E0FF71 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
