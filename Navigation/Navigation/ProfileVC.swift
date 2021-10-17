@@ -13,7 +13,15 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         title = "Profile"
         view.backgroundColor = .systemCyan
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemBackground
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     
     }
+
 
 }

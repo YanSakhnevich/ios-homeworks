@@ -14,6 +14,13 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemTeal
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemBackground
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         view.addSubview(button)
