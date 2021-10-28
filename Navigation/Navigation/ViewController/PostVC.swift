@@ -1,10 +1,3 @@
-//
-//  PostVC.swift
-//  Navigation
-//
-//  Created by Yan Sakhnevich on 16.10.2021.
-//
-
 import UIKit
 
 class PostVC: UIViewController {
@@ -51,20 +44,4 @@ class PostVC: UIViewController {
     @objc func didTapButton() {
        showModal()        
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        //            navigationController?.navigationBar.prefersLargeTitles = true
-//
-//        let appearance = UINavigationBarAppearance()
-//        appearance.backgroundColor = .systemBackground
-//        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-//        //        appearance.accessibilityFrame.width.
-//
-//        navigationController?.navigationBar.tintColor = .white
-//        navigationController?.navigationBar.standardAppearance = appearance
-//        navigationController?.navigationBar.compactAppearance = appearance
-//        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-//    }
-
 }

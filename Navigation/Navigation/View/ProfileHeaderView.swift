@@ -41,8 +41,8 @@ class ProfileHeaderView: UIView {
         static let showStatusButtonHeight: CGFloat = 50.0
         
         static let padding: CGFloat = 16
-        static let labelPadding: CGFloat = 27
-        static let textPadding: CGFloat = 34
+        static let labelPadding: CGFloat = 16
+        static let textPadding: CGFloat = 27
         
     }
     

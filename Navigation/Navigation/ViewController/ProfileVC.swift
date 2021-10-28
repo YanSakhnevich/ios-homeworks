@@ -15,6 +15,12 @@ class ProfileVC: UIViewController {
     }()
     
     
+    let statusButton: UIButton = {
+        let button = MyButton(frame: .zero)
+        button.blueButton(title: "Another button")
+        return button
+    }()
+    
     override func loadView() {
         super.loadView()
         profileHeaderView.backgroundColor = .lightGray
@@ -26,29 +32,36 @@ class ProfileVC: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.addSubview(profileHeaderView)
+        view.backgroundColor = .white
         profileHeaderView.toAutoLayout()
+        view.addSubview(statusButton)
+        statusButton.toAutoLayout()
         setupLayout()
-
     }
     
+    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
-        profileHeaderView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+
+
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            profileHeaderView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            profileHeaderView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            profileHeaderView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            profileHeaderView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
             profileHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            profileHeaderView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
+            statusButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            statusButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            statusButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0)
          ])
     }
     
@@ -59,6 +72,6 @@ class ProfileVC: UIViewController {
     @objc func statusTextChanged(_ textField: UITextField) {
         guard let text = textField.text else { return }
         statusText = text
-
-}
+        
+    }
 }
