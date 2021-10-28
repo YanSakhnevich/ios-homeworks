@@ -106,6 +106,7 @@
 			children = (
 				C8773AFD271A4AE500C5E0B9 /* AppDelegate.swift */,
 				C8773AFF271A4AE500C5E0B9 /* SceneDelegate.swift */,
+				C86EC482272AB21600E705F9 /* MyButton.swift */,
 				C8444D7427241A0C00ED6C4F /* ViewController */,
 				C8444D7527241A2D00ED6C4F /* View */,
 				C8444D7A2724D40F00ED6C4F /* Extentions */,
@@ -113,7 +114,6 @@
 				C8773B08271A4AE700C5E0B9 /* LaunchScreen.storyboard */,
 				C8773B06271A4AE700C5E0B9 /* Assets.xcassets */,
 				C8773B0B271A4AE700C5E0B9 /* Info.plist */,
-				C86EC482272AB21600E705F9 /* MyButton.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
