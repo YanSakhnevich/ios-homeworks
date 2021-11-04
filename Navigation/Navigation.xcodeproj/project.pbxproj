@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C818081D27338540000E01D8 /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818081C27338540000E01D8 /* LogInVC.swift */; };
+		C818081F2733995E000E01D8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818081E2733995E000E01D8 /* Constants.swift */; };
 		C8444D7727241A4C00ED6C4F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8444D7627241A4C00ED6C4F /* ProfileHeaderView.swift */; };
 		C8444D792724D40200ED6C4F /* ViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8444D782724D40200ED6C4F /* ViewExtention.swift */; };
 		C8444D7C2724D51100ED6C4F /* ImageViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8444D7B2724D51100ED6C4F /* ImageViewExtention.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C818081C27338540000E01D8 /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
+		C818081E2733995E000E01D8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C8444D7627241A4C00ED6C4F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		C8444D782724D40200ED6C4F /* ViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtention.swift; sourceTree = "<group>"; };
 		C8444D7B2724D51100ED6C4F /* ImageViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtention.swift; sourceTree = "<group>"; };
@@ -62,6 +66,7 @@
 				C86B52DF271AA33800B1910D /* PostVC.swift */,
 				C8F8A314271B921D00E0FF71 /* InfoVC.swift */,
 				C8773B13271A743300C5E0B9 /* ProfileVC.swift */,
+				C818081C27338540000E01D8 /* LogInVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 				C8773AFD271A4AE500C5E0B9 /* AppDelegate.swift */,
 				C8773AFF271A4AE500C5E0B9 /* SceneDelegate.swift */,
 				C86EC482272AB21600E705F9 /* MyButton.swift */,
+				C818081E2733995E000E01D8 /* Constants.swift */,
 				C8444D7427241A0C00ED6C4F /* ViewController */,
 				C8444D7527241A2D00ED6C4F /* View */,
 				C8444D7A2724D40F00ED6C4F /* Extentions */,
@@ -193,11 +199,13 @@
 				C8444D802724D56B00ED6C4F /* ButtonExtention.swift in Sources */,
 				C86EC483272AB21600E705F9 /* MyButton.swift in Sources */,
 				C8773B14271A743300C5E0B9 /* ProfileVC.swift in Sources */,
+				C818081F2733995E000E01D8 /* Constants.swift in Sources */,
 				C8444D7E2724D54800ED6C4F /* TextFieldExtention.swift in Sources */,
 				C8773B12271A73F700C5E0B9 /* FeedVC.swift in Sources */,
 				C8773AFE271A4AE500C5E0B9 /* AppDelegate.swift in Sources */,
 				C8773B00271A4AE500C5E0B9 /* SceneDelegate.swift in Sources */,
 				C8F8A315271B921D00E0FF71 /* InfoVC.swift in Sources */,
+				C818081D27338540000E01D8 /* LogInVC.swift in Sources */,
 				C86B52E0271AA33800B1910D /* PostVC.swift in Sources */,
 				C8F8A317271BA00700E0FF71 /* Alert.swift in Sources */,
 				C8444D7727241A4C00ED6C4F /* ProfileHeaderView.swift in Sources */,
