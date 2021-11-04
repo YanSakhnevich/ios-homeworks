@@ -1,10 +1,3 @@
-//
-//  FeedVC.swift
-//  Navigation
-//
-//  Created by Yan Sakhnevich on 16.10.2021.
-//
-
 import UIKit
 
 class FeedVC: UIViewController {
@@ -13,7 +6,7 @@ class FeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemTeal
+        view.backgroundColor = .systemPink
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemBackground
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
@@ -22,30 +15,48 @@ class FeedVC: UIViewController {
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        view.addSubview(button)
-        button.center = view.center
-        button.backgroundColor = .systemGray
-        button.setTitle("Go to Post", for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(
-            self,
-            action: #selector(didTapButton),
-            for: .touchUpInside
-        )
-   
+        configureStack()
+        view.addSubview(stack)
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.spacing = 10
+        stack.toAutoLayout()
+        setupLayout()
     }
    
+    var stack = UIStackView()
+    
+    func configureStack() {
+        let _ = ["Button_1", "Button_2"].map { [weak self] txt in
+            let button = MyButton()
+            button.blueButton(title: txt)
+            button.toAutoLayout()
+            button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+            self?.stack.addArrangedSubview(button)
+        }
+    }
     
     @objc func didTapButton() {
         let post = PostVC(titlePost: titlePostVC.title)
         navigationController?.pushViewController(post, animated: true)
     }
+    
+    
+    private func setupLayout() {
+        NSLayoutConstraint.activate([
+            stack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            stack.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
+    }
 }
+
 
 struct Post {
     let title: String
 }
+
+
+
 
 
 

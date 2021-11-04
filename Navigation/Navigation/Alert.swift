@@ -1,10 +1,3 @@
-//
-//  Alert.swift
-//  Navigation
-//
-//  Created by Yan Sakhnevich on 17.10.2021.
-//
-
 import UIKit
 
 struct Alert {
