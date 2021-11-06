@@ -22,6 +22,10 @@
 		C8773B0A271A4AE700C5E0B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8773B08271A4AE700C5E0B9 /* LaunchScreen.storyboard */; };
 		C8773B12271A73F700C5E0B9 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8773B11271A73F700C5E0B9 /* FeedVC.swift */; };
 		C8773B14271A743300C5E0B9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8773B13271A743300C5E0B9 /* ProfileVC.swift */; };
+		C87E23922736468F000D78C8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87E23912736468F000D78C8 /* UIImage.swift */; };
+		C8EEB087273528DB003CB007 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEB086273528DB003CB007 /* PostData.swift */; };
+		C8EEB089273534F3003CB007 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEB088273534F3003CB007 /* PostTableViewCell.swift */; };
+		C8EEB08B27353F70003CB007 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EEB08A27353F70003CB007 /* String.swift */; };
 		C8F8A315271B921D00E0FF71 /* InfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F8A314271B921D00E0FF71 /* InfoVC.swift */; };
 		C8F8A317271BA00700E0FF71 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F8A316271BA00700E0FF71 /* Alert.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +48,10 @@
 		C8773B0B271A4AE700C5E0B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8773B11271A73F700C5E0B9 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		C8773B13271A743300C5E0B9 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C87E23912736468F000D78C8 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		C8EEB086273528DB003CB007 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		C8EEB088273534F3003CB007 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		C8EEB08A27353F70003CB007 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C8F8A314271B921D00E0FF71 /* InfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoVC.swift; sourceTree = "<group>"; };
 		C8F8A316271BA00700E0FF71 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,27 +73,24 @@
 				C8773B11271A73F700C5E0B9 /* FeedVC.swift */,
 				C86B52DF271AA33800B1910D /* PostVC.swift */,
 				C8F8A314271B921D00E0FF71 /* InfoVC.swift */,
-				C8773B13271A743300C5E0B9 /* ProfileVC.swift */,
 				C818081C27338540000E01D8 /* LogInVC.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		C8444D7527241A2D00ED6C4F /* View */ = {
-			isa = PBXGroup;
-			children = (
+				C8773B13271A743300C5E0B9 /* ProfileVC.swift */,
+				C8EEB088273534F3003CB007 /* PostTableViewCell.swift */,
 				C8444D7627241A4C00ED6C4F /* ProfileHeaderView.swift */,
 			);
-			path = View;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C8444D7A2724D40F00ED6C4F /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				C86EC482272AB21600E705F9 /* MyButton.swift */,
 				C8444D782724D40200ED6C4F /* ViewExtention.swift */,
 				C8444D7B2724D51100ED6C4F /* ImageViewExtention.swift */,
 				C8444D7D2724D54800ED6C4F /* TextFieldExtention.swift */,
 				C8444D7F2724D56B00ED6C4F /* ButtonExtention.swift */,
+				C8EEB08A27353F70003CB007 /* String.swift */,
+				C87E23912736468F000D78C8 /* UIImage.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -109,17 +114,16 @@
 		C8773AFC271A4AE500C5E0B9 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				C8773AFD271A4AE500C5E0B9 /* AppDelegate.swift */,
-				C8773AFF271A4AE500C5E0B9 /* SceneDelegate.swift */,
-				C86EC482272AB21600E705F9 /* MyButton.swift */,
-				C818081E2733995E000E01D8 /* Constants.swift */,
-				C8444D7427241A0C00ED6C4F /* ViewController */,
-				C8444D7527241A2D00ED6C4F /* View */,
-				C8444D7A2724D40F00ED6C4F /* Extentions */,
 				C8F8A316271BA00700E0FF71 /* Alert.swift */,
+				C8773AFF271A4AE500C5E0B9 /* SceneDelegate.swift */,
+				C818081E2733995E000E01D8 /* Constants.swift */,
+				C8EEB086273528DB003CB007 /* PostData.swift */,
+				C8444D7427241A0C00ED6C4F /* ViewController */,
+				C8444D7A2724D40F00ED6C4F /* Extentions */,
 				C8773B08271A4AE700C5E0B9 /* LaunchScreen.storyboard */,
 				C8773B06271A4AE700C5E0B9 /* Assets.xcassets */,
 				C8773B0B271A4AE700C5E0B9 /* Info.plist */,
+				C8773AFD271A4AE500C5E0B9 /* AppDelegate.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -196,6 +200,7 @@
 			files = (
 				C8444D792724D40200ED6C4F /* ViewExtention.swift in Sources */,
 				C8444D7C2724D51100ED6C4F /* ImageViewExtention.swift in Sources */,
+				C8EEB089273534F3003CB007 /* PostTableViewCell.swift in Sources */,
 				C8444D802724D56B00ED6C4F /* ButtonExtention.swift in Sources */,
 				C86EC483272AB21600E705F9 /* MyButton.swift in Sources */,
 				C8773B14271A743300C5E0B9 /* ProfileVC.swift in Sources */,
@@ -205,8 +210,11 @@
 				C8773AFE271A4AE500C5E0B9 /* AppDelegate.swift in Sources */,
 				C8773B00271A4AE500C5E0B9 /* SceneDelegate.swift in Sources */,
 				C8F8A315271B921D00E0FF71 /* InfoVC.swift in Sources */,
+				C8EEB08B27353F70003CB007 /* String.swift in Sources */,
+				C8EEB087273528DB003CB007 /* PostData.swift in Sources */,
 				C818081D27338540000E01D8 /* LogInVC.swift in Sources */,
 				C86B52E0271AA33800B1910D /* PostVC.swift in Sources */,
+				C87E23922736468F000D78C8 /* UIImage.swift in Sources */,
 				C8F8A317271BA00700E0FF71 /* Alert.swift in Sources */,
 				C8444D7727241A4C00ED6C4F /* ProfileHeaderView.swift in Sources */,
 			);
