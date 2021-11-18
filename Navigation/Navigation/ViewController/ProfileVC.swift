@@ -17,7 +17,7 @@ class ProfileVC: UIViewController {
     // MARK: Posts table view
     private lazy var postTableView: UITableView = {
         let postTableView = UITableView()
-        postTableView.translatesAutoresizingMaskIntoConstraints = false
+        postTableView.toAutoLayout()
         postTableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifire)
         postTableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: ProfileHeaderView.identifire)
         postTableView.separatorInset = .zero
@@ -55,7 +55,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                            likes: postArray[indexPath.row].likes,
                            views: postArray[indexPath.row].views
         )
-        print(indexPath.row)
+
         return cell
     }
     

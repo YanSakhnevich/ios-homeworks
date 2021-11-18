@@ -121,6 +121,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         ]
         
         contentView.addSubviews(views)
+//        contentView.toAutoLayout()
         self.setupConstraints()
         
     }
@@ -152,22 +153,21 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     //MARK: TextField Action
     @objc func statusTextChanged(_ textField: UITextField) {
         guard let text = textField.text else { return }
-        statusButtonEnable()
         statusText = text
+        statusButtonEnable()
         showStatusButton.resignFirstResponder()
     }
     
     // MARK: Constraints
     private func setupConstraints() {
         
-        contentView.toAutoLayout()
+//        contentView.toAutoLayout()
         
         NSLayoutConstraint.activate([
             
             self.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
             self.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: Constants.contentViewHeight),
             
             logoImageView.widthAnchor.constraint(equalToConstant: Constants.logoImageViewWidth),
             logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),
@@ -190,6 +190,8 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.padding),
             showStatusButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: Constants.showStatusButtonPadding),
             showStatusButton.heightAnchor.constraint(equalToConstant: Constants.showStatusButtonHeight),
+            showStatusButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.padding),
+
             
         ])
     }

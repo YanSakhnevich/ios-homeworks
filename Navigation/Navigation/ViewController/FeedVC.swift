@@ -6,7 +6,7 @@ class FeedVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemCyan
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .systemBackground
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
@@ -27,9 +27,16 @@ class FeedVC: UIViewController {
     var stack = UIStackView()
     
     func configureStack() {
-        let _ = ["Button_1", "Button_2"].map { [weak self] txt in
+        let _ = ["   Button_1   ", "   Button_2   "].map { [weak self] buttonTitleText in
             let button = MyButton()
-            button.blueButton(title: txt)
+            button.blueButton(title: buttonTitleText)
+            button.roundedButtonWithShadow(
+                corderRadius: Constants.showStatusButtonCornerRadius,
+                shadowOffset: Constants.showStatusShadowOffset,
+                shadowRadius: Constants.showStatusShadowRadius,
+                shadowColor: Constants.showStatusShadowColor,
+                shadowOpacity: Constants.showStatusShadowOpacity
+            )
             button.toAutoLayout()
             button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
             self?.stack.addArrangedSubview(button)

@@ -32,7 +32,7 @@ class PostTableViewCell: UITableViewCell {
         self.postLikes.attributedText = stringForLike
         
         let imageForViews = NSTextAttachment()
-        imageForViews.image = UIImage(systemName: "eye.circle")
+        imageForViews.image = UIImage(systemName: "eye")
         let stringForViews = NSMutableAttributedString(string: "")
         stringForViews.append(NSAttributedString(attachment: imageForViews))
         stringForViews.append(NSAttributedString(string: " \(views)"))
