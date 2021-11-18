@@ -5,6 +5,7 @@ class PostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = titlePost
         configureItems()
         view.backgroundColor = .systemGreen
@@ -29,7 +30,7 @@ class PostVC: UIViewController {
     
     private func configureItems() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "info.circle"),
+            image: UIImage(systemName: .postVCInfoSymbolName),
             style: .done,
             target: self,
             action: #selector(didTapButton)

@@ -2,7 +2,7 @@ import UIKit
 
 class MyButton: UIButton {
     
-    func blueButton(title title: String) {
+    func blueButton(title: String) {
         
         backgroundColor = .systemBlue
         setTitleColor(.white, for: .normal)

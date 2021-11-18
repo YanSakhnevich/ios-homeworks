@@ -16,9 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    func createFeedNC() -> UINavigationController {
+    func createNC_1() -> UINavigationController {
         let feedVC = FeedVC()
-        let feedImage = UIImage(systemName: "list.bullet.rectangle.portrait")
+        let feedImage = UIImage(systemName: "house")
         feedVC.title = "Feed"
         feedVC.tabBarItem = UITabBarItem(
             title: "Feed",
@@ -28,23 +28,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return UINavigationController(rootViewController: feedVC)
     }
     
-    func createProfileNC() -> UINavigationController {
-        let profileVC = ProfileVC()
+    func createNC_2() -> UINavigationController {
+        let logInVC = LogInVC()
+        
         let profileImage = UIImage(systemName: "person")
-        profileVC.navigationController?.navigationBar.barTintColor = UIColor.systemGray
-        profileVC.tabBarItem = UITabBarItem(
+        logInVC.navigationController?.navigationBar.barTintColor = UIColor.systemGray
+        logInVC.tabBarItem = UITabBarItem(
             title: "Profile",
             image: profileImage,
             selectedImage: nil
         )
-        return UINavigationController(rootViewController: profileVC)
+        return UINavigationController(rootViewController: logInVC)
     }
     
     func createTabBar() -> UITabBarController {
         let tabBar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemOrange
+        UITabBar.appearance().tintColor = .systemBlue
         tabBar.tabBar.backgroundColor = .white
-        tabBar.viewControllers = [createFeedNC(), createProfileNC()]
+        tabBar.viewControllers = [createNC_1(), createNC_2()]
         
         return tabBar
     }
