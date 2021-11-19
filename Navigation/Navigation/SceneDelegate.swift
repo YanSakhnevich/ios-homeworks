@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = createTabBar()
             self.window?.makeKeyAndVisible()
         }
+        createPhotosArray()
     }
     
     func createNC_1() -> UINavigationController {

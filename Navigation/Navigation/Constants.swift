@@ -48,4 +48,11 @@ struct Constants {
     static let vkIconLoginFormTop: CGFloat = 120
     static let logInButtonHeight: CGFloat = 50
     static let borderWidth: CGFloat = 0.25
+    
+    static let photosLabelFont: UIFont = UIFont.systemFont(ofSize: 24, weight: .bold)
+    static let photoTableViewConst: CGFloat = 12
+    static let photoTableViewArrowImageConst: CGFloat = 40
+    static let photoTableViewPreviewImageConst: CGFloat = 16
+
+
 }
