@@ -1,14 +1,14 @@
 import UIKit
 
-struct PostData {
-    var title: String
-    var description: String
-    var image: String
-    var likes: Int
-    var views: Int
+public struct PostData {
+    public var title: String
+    public var description: String
+    public var image: String
+    public var likes: Int
+    public var views: Int
 }
 
-let post1 = PostData(
+public let post1 = PostData(
     title: """
 "Десять лет за десять минут": Oxxxymiron представил новые трек и клип
 """,
@@ -23,7 +23,7 @@ let post1 = PostData(
     views: 112876)
 
 
-let post2 = PostData(
+public let post2 = PostData(
     title: """
 Группа Limp Bizkit выпустила первый за десять лет альбом
 """,
@@ -39,7 +39,7 @@ let post2 = PostData(
     views: 12065)
 
 
-let post3 = PostData(
+public let post3 = PostData(
     title: """
 macOS Monterey уже здесь
 """,
@@ -54,7 +54,7 @@ macOS Monterey уже здесь
     views: 88755)
 
 
-let post4 = PostData(
+public let post4 = PostData(
     title: """
 «Лейкерс» потеряли Леброна Джеймса из-за травмы
 """,
@@ -67,4 +67,4 @@ let post4 = PostData(
     likes: 9987,
     views: 88764)
 
-let postArray: [PostData] = [post1, post2, post3, post4]
+public let postArray: [PostData] = [post1, post2, post3, post4]
