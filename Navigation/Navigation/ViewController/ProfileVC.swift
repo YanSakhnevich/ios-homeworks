@@ -3,13 +3,9 @@ import StorageService
 
 class ProfileVC: UIViewController {
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
 #if DEBUG
         view.backgroundColor = .red
 #else
@@ -64,6 +60,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = postTableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifire, for: indexPath) as? PhotoTableViewCell else { fatalError() }
+            
             return cell
         case 1:
             guard let cell = postTableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifire, for: indexPath) as? PostTableViewCell else { fatalError() }
@@ -72,6 +69,8 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
                                description: postArray[indexPath.row].description,
                                likes: postArray[indexPath.row].likes,
                                views: postArray[indexPath.row].views)
+            let currentPost: PostData = postArray[indexPath.row]
+            cell.configure(with: currentPost)
             return cell
         default:
             return UITableViewCell()

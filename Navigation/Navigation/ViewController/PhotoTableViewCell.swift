@@ -6,7 +6,6 @@ class PhotoTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        self.toAutoLayout()
         self.selectionStyle = .none
         let arraySW: [UIView] = [
             photosLabel,
