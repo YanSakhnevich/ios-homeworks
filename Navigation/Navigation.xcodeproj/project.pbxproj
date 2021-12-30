@@ -24,8 +24,6 @@
 		C8773B12271A73F700C5E0B9 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8773B11271A73F700C5E0B9 /* FeedVC.swift */; };
 		C8773B14271A743300C5E0B9 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8773B13271A743300C5E0B9 /* ProfileVC.swift */; };
 		C87E23922736468F000D78C8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87E23912736468F000D78C8 /* UIImage.swift */; };
-		C89336B62778751B00110B08 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89336B52778751B00110B08 /* SnapKit.framework */; };
-		C89336B72778751B00110B08 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C89336B52778751B00110B08 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C8BB709E2746D008005E2C5C /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB709D2746D008005E2C5C /* PhotoTableViewCell.swift */; };
 		C8BB70A02746D0AA005E2C5C /* PhotoGalleryArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB709F2746D0AA005E2C5C /* PhotoGalleryArray.swift */; };
 		C8BB70A22746D706005E2C5C /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB70A12746D706005E2C5C /* PhotoViewController.swift */; };
@@ -77,7 +75,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C8CBBC3C27768DD300ABE68C /* StorageService.framework in Embed Frameworks */,
-				C89336B72778751B00110B08 /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C89336B62778751B00110B08 /* SnapKit.framework in Frameworks */,
 				C8CBBC3B27768DD300ABE68C /* StorageService.framework in Frameworks */,
 				FDA5C221914BEB001778E421 /* Pods_Navigation.framework in Frameworks */,
 			);
@@ -704,6 +700,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AMP4K6VW86;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -732,6 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AMP4K6VW86;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

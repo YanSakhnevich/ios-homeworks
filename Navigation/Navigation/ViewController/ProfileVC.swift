@@ -2,16 +2,19 @@ import UIKit
 import StorageService
 
 class ProfileVC: UIViewController {
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
 #if DEBUG
         view.backgroundColor = .red
 #else
         view.backgroundColor = .blue
 #endif
-//        view.backgroundColor = .white
         view.addSubview(postTableView)
         
         setupConstraints()
@@ -58,19 +61,23 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 1 {
-            let cell = postTableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifire, for: indexPath) as! PostTableViewCell
+        switch indexPath.section {
+        case 0:
+            guard let cell = postTableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifire, for: indexPath) as? PhotoTableViewCell else { fatalError() }
+            return cell
+        case 1:
+            guard let cell = postTableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifire, for: indexPath) as? PostTableViewCell else { fatalError() }
             cell.configureCell(title: postArray[indexPath.row].title,
                                image: postArray[indexPath.row].image,
                                description: postArray[indexPath.row].description,
                                likes: postArray[indexPath.row].likes,
                                views: postArray[indexPath.row].views)
             return cell
-        } else {
-            let cell = postTableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifire, for: indexPath) as! PhotoTableViewCell
-            return cell
+        default:
+            return UITableViewCell()
         }
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
@@ -80,13 +87,19 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
+        if section == 0 {
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileHeaderView.identifire) as! ProfileHeaderView
             return headerView
         } else {
             return nil
         }
     }
-
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 220
+        } else {
+            return 0
+        }
+    }
 }

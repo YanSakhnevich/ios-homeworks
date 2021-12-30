@@ -28,7 +28,7 @@ struct Constants {
     static let statusTextFieldBorderWidth: CGFloat = 1
     static let statusTextFieldBorderColor: CGColor = UIColor.black.cgColor
     static let statusTextFieldHeight: CGFloat = 40.0
-    static let statusTextFieldWidth: CGFloat = 300.0
+    static let statusTextFieldWidth: CGFloat = 226.0
     static let statusTextFieldBottomAnchor: CGFloat = 10
     
     static let showStatusButtonColor: UIColor = .systemBlue
@@ -38,11 +38,15 @@ struct Constants {
     static let showStatusShadowColor: CGColor = UIColor.black.cgColor
     static let showStatusShadowOpacity: Float = 0.7
     static let showStatusButtonHeight: CGFloat = 50.0
+    static let showStatusButtonWidth: CGFloat = 345.0
+
     
     static let padding: CGFloat = 16
     static let labelPadding: CGFloat = 16
+    static let statusLabelPadding: CGFloat = 80
+
     static let textPadding: CGFloat = 27
-    static let showStatusButtonPadding: CGFloat = 42
+    static let showStatusButtonPadding: CGFloat = 10
     static let contentViewHeight: CGFloat = 220
     static let vkIconLoginFormHeightWidth: CGFloat = 100
     static let vkIconLoginFormTop: CGFloat = 120
