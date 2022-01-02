@@ -1,4 +1,7 @@
 import UIKit
+import iOSIntPackage
+import StorageService
+
 
 class PostTableViewCell: UITableViewCell {
     
@@ -28,16 +31,21 @@ class PostTableViewCell: UITableViewCell {
         let stringForLike = NSMutableAttributedString(string: "")
         stringForLike.append(NSAttributedString(attachment: imageForLike))
         stringForLike.append(NSAttributedString(string: " \(likes)"))
-        
+
         self.postLikes.attributedText = stringForLike
-        
+
         let imageForViews = NSTextAttachment()
         imageForViews.image = UIImage(systemName: "eye.circle")
         let stringForViews = NSMutableAttributedString(string: "")
         stringForViews.append(NSAttributedString(attachment: imageForViews))
         stringForViews.append(NSAttributedString(string: " \(views)"))
-        
+
         self.postViews.attributedText = stringForViews
+
+    }
+    
+    public func configure(with post: PostData) {
+        randomFilterImage(with: post.image)
     }
     
     // MARK: Post title
@@ -122,4 +130,23 @@ class PostTableViewCell: UITableViewCell {
     }
 }
 
+extension PostTableViewCell {
+    
+    private func randomFilterImage(with namedImage: String) {
+        let imageProcessor = ImageProcessor()
+        
+        guard let image = UIImage(named: namedImage) else { return }
+        guard let filter = ColorFilter.allCases.randomElement() else { return }
+        
+        DispatchQueue.main.async {
+            imageProcessor.processImage(
+                sourceImage: image,
+                filter: filter,
+                completion: { image in
+                    self.postImage.image = image
+                }
+            )
+        }
+    }
+}
 

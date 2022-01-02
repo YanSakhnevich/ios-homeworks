@@ -6,6 +6,7 @@ public struct PostData {
     public var image: String
     public var likes: Int
     public var views: Int
+    
 }
 
 public let post1 = PostData(

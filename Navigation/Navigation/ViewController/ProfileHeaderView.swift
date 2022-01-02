@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
@@ -6,6 +7,21 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     private(set) var statusText: String = ""
     
     static let identifire = "ProfileHeaderView"
+    
+    // MARK: Add Subviews
+    func addView() {
+        let views: [UIView] = [
+            logoImageView,
+            nameLabel,
+            statusLabel,
+            statusTextField,
+            showStatusButton
+        ]
+        contentView.addSubviews(views)
+
+        setupConstraints()
+        
+    }
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -110,20 +126,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return statusTextField
     }()
     
-    // MARK: Add Subviews
-    func addView() {
-        let views: [UIView] = [
-            logoImageView,
-            nameLabel,
-            statusLabel,
-            statusTextField,
-            showStatusButton
-        ]
-        
-        contentView.addSubviews(views)
-        self.setupConstraints()
-        
-    }
+ 
     
     // MARK: Button Action
     @objc func pressButton(){
@@ -157,41 +160,38 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         showStatusButton.resignFirstResponder()
     }
     
-    // MARK: Constraints
+    // MARK: Setting layout constraints with SnapKit
     private func setupConstraints() {
         
-        contentView.toAutoLayout()
-        
-        NSLayoutConstraint.activate([
-            
-            self.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
-            self.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: Constants.contentViewHeight),
-            
-            logoImageView.widthAnchor.constraint(equalToConstant: Constants.logoImageViewWidth),
-            logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor),
-            logoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
-            logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding),
-            
-            nameLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: Constants.labelPadding),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding),
-            
-            statusLabel.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: Constants.labelPadding),
-            statusLabel.bottomAnchor.constraint(equalTo: statusTextField.topAnchor, constant: -Constants.statusLabelBottomAnchor),
-            statusLabel.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: -Constants.padding),
-            
-            statusTextField.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: Constants.padding),
-            statusTextField.bottomAnchor.constraint(equalTo: showStatusButton.topAnchor, constant: -Constants.statusTextFieldBottomAnchor),
-            statusTextField.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor, constant: -Constants.padding),
-            statusTextField.heightAnchor.constraint(equalToConstant: Constants.statusTextFieldHeight),
-            
-            showStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.padding),
-            showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Constants.padding),
-            showStatusButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: Constants.showStatusButtonPadding),
-            showStatusButton.heightAnchor.constraint(equalToConstant: Constants.showStatusButtonHeight),
-            
-        ])
+        logoImageView.snp.makeConstraints { make in
+            make.leading.equalTo(contentView.snp.leading).offset(Constants.padding)
+            make.top.equalTo(contentView.snp.top).offset(Constants.padding)
+            make.size.equalTo(CGSize(width: Constants.logoImageViewWidth, height: Constants.logoImageViewWidth))
+        }
+
+        nameLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(contentView.snp.centerX)
+            make.top.equalTo(contentView.snp.top).offset(Constants.padding)
+        }
+
+        statusLabel.snp.makeConstraints { make in
+            make.leading.equalTo(nameLabel.snp.leading)
+        }
+
+        statusTextField.snp.makeConstraints { make in
+            make.height.equalTo(Constants.statusTextFieldHeight)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-Constants.padding)
+            make.top.equalTo(statusLabel.snp.bottom).offset(Constants.padding)
+            make.leading.equalTo(statusLabel.snp.leading)
+            make.bottom.equalTo(showStatusButton.snp.top).offset(-Constants.statusTextFieldBottomAnchor)
+        }
+
+        showStatusButton.snp.makeConstraints { make in
+            make.height.equalTo(Constants.showStatusButtonHeight)
+            make.leading.equalTo(contentView.snp.leading).offset(Constants.padding)
+            make.width.equalTo(Constants.showStatusButtonWidth)
+            make.top.equalTo(logoImageView.snp.bottom).offset(Constants.padding*2)
+        }
     }
 }
 
