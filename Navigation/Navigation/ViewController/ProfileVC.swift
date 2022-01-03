@@ -33,14 +33,8 @@ class ProfileVC: UIViewController {
         postTableView.dataSource = self
         postTableView.delegate = self
         
-        configureProfileHeaderView()
     }
     
-    private func configureProfileHeaderView() {
-        guard let user = service.getUser(fullName: fullName) else { return }
-    
-//        profileHV.configure(with: user)
-    }
     
     // MARK: Posts table view
     private lazy var postTableView: UITableView = {
@@ -111,7 +105,8 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileHeaderView.identifire) as! ProfileHeaderView
-            
+            guard let user = service.getUser(fullName: fullName) else { return headerView}
+            headerView.configure(with: user)
             return headerView
         } else {
             return nil
