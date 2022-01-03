@@ -2,6 +2,21 @@ import UIKit
 import StorageService
 
 class ProfileVC: UIViewController {
+    
+    var service: UserService
+    var fullName: String
+
+    
+    init(service: UserService, fullName: String) {
+        self.service = service
+        self.fullName = fullName
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +32,14 @@ class ProfileVC: UIViewController {
         
         postTableView.dataSource = self
         postTableView.delegate = self
+        
+        configureProfileHeaderView()
+    }
+    
+    private func configureProfileHeaderView() {
+        guard let user = service.getUser(fullName: fullName) else { return }
+    
+//        profileHV.configure(with: user)
     }
     
     // MARK: Posts table view
@@ -88,6 +111,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileHeaderView.identifire) as! ProfileHeaderView
+            
             return headerView
         } else {
             return nil
