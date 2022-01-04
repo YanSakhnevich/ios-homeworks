@@ -166,7 +166,21 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     //MARK: Login button action
     @objc private func loginButtonPressed() {
         
-        let profileVC = ProfileVC()
+        guard let emailText = loginTF.text else { return }
+        var currentUser: UserService
+        let fullName = emailText
+        
+        #if DEBUG
+            currentUser = TestUserService()
+        #else
+        let user = User(
+            fullName: fullName,
+            avatar: "avatar_cat",
+            status: "Waiting for something..."
+        )
+        currentUser = CurrentService(user: user)
+        #endif
+        let profileVC = ProfileVC(service: currentUser, fullName: fullName)
         
         navigationController?.pushViewController(profileVC, animated: false)
         navigationController?.setViewControllers([profileVC], animated: true)

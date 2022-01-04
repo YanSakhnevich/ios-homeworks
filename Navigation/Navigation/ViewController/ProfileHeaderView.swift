@@ -3,7 +3,7 @@ import SnapKit
 
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
-    
+        
     private(set) var statusText: String = ""
     
     static let identifire = "ProfileHeaderView"
@@ -205,5 +205,13 @@ extension ProfileHeaderView: UITextFieldDelegate {
         }
         return true
         
+    }
+}
+
+extension ProfileHeaderView {
+    public func configure(with user: User) {
+        logoImageView.image = UIImage(named: user.avatar)
+        nameLabel.text = user.fullName
+        statusLabel.text = user.status
     }
 }
