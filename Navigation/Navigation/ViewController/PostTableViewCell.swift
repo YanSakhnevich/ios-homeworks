@@ -31,17 +31,17 @@ class PostTableViewCell: UITableViewCell {
         let stringForLike = NSMutableAttributedString(string: "")
         stringForLike.append(NSAttributedString(attachment: imageForLike))
         stringForLike.append(NSAttributedString(string: " \(likes)"))
-
+        
         self.postLikes.attributedText = stringForLike
-
+        
         let imageForViews = NSTextAttachment()
         imageForViews.image = UIImage(systemName: "eye.circle")
         let stringForViews = NSMutableAttributedString(string: "")
         stringForViews.append(NSAttributedString(attachment: imageForViews))
         stringForViews.append(NSAttributedString(string: " \(views)"))
-
+        
         self.postViews.attributedText = stringForViews
-
+        
     }
     
     public func configure(with post: PostData) {
@@ -95,7 +95,7 @@ class PostTableViewCell: UITableViewCell {
         postLikes.textColor = .black
         return postViews
     }()
-
+    
     
     // MARK: Constraints
     private func setupConstraints(){
