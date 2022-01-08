@@ -1,15 +1,19 @@
 import UIKit
 
-class LogInVC: UIViewController, UITextFieldDelegate {
+protocol LogInViewControllerDelegate: AnyObject {
+    func checkLoginPasswordAvailability(inputLogin: String, inputPassword: String) -> Bool
+}
+
+class LogInViewController: UIViewController {
+    
+    weak var checkerDelegate: LogInViewControllerDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isHidden = true
         navigationController?.tabBarController?.tabBar.backgroundColor = .systemGray6
-        
-        self.loginTF.delegate = self
-        self.passwordTF.delegate = self
         
         setupViews()
         
@@ -43,13 +47,13 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     
     // MARK: LoginFromStackView
     private lazy var loginFormStackView: UIStackView = {
-        let loginFormStackView = UIStackView()
+        loginFormStackView = UIStackView(arrangedSubviews: [loginTF, passwordTF])
         loginFormStackView.toAutoLayout()
         loginFormStackView.axis = .vertical
         loginFormStackView.layer.borderColor = UIColor.lightGray.cgColor
         loginFormStackView.layer.borderWidth = 0.5
         loginFormStackView.layer.cornerRadius = 10
-        loginFormStackView.distribution = .fillProportionally
+        loginFormStackView.distribution = .fillEqually
         loginFormStackView.backgroundColor = .systemGray6
         loginFormStackView.clipsToBounds = true
         return loginFormStackView
@@ -122,6 +126,7 @@ class LogInVC: UIViewController, UITextFieldDelegate {
         
         let passwordTF = UITextField()
         
+        passwordTF.keyboardType = .emailAddress
         passwordTF.toAutoLayout()
         passwordTF.leftViewMode = .always
         passwordTF.placeholder = .passwordTF
@@ -157,30 +162,32 @@ class LogInVC: UIViewController, UITextFieldDelegate {
         
         contentView.addSubviews(views)
         
-        loginFormStackView.addArrangedSubview(loginTF)
-        loginFormStackView.addArrangedSubview(passwordTF)
-        
         setupConstraints()
     }
     
     //MARK: Login button action
     @objc private func loginButtonPressed() {
         
-        guard let emailText = loginTF.text else { return }
+        guard let emailText = loginTF.text, !emailText.isEmpty else { return }
+        guard let passwordText = passwordTF.text, !passwordText.isEmpty else { return }
+        
+        guard let isLoginAvalable = checkerDelegate?.checkLoginPasswordAvailability(inputLogin: emailText, inputPassword: passwordText) else { return }
+        guard isLoginAvalable == true else { return print("Введены неверный логин или пароль.") }
+        
         var currentUser: UserService
         let fullName = emailText
         
-        #if DEBUG
-            currentUser = TestUserService()
-        #else
+#if DEBUG
+        currentUser = TestUserService()
+#else
         let user = User(
             fullName: fullName,
             avatar: "avatar_cat",
             status: "Waiting for something..."
         )
         currentUser = CurrentService(user: user)
-        #endif
-        let profileVC = ProfileVC(service: currentUser, fullName: fullName)
+#endif
+        let profileVC = ProfileViewController(service: currentUser, fullName: fullName)
         
         navigationController?.pushViewController(profileVC, animated: false)
         navigationController?.setViewControllers([profileVC], animated: true)

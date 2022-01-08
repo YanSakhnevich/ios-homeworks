@@ -1,6 +1,6 @@
 import UIKit
 
-class PostVC: UIViewController {
+class PostViewController: UIViewController {
     private let titlePost: String
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class PostVC: UIViewController {
     
     private func configureItems() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: .postVCInfoSymbolName),
+            image: UIImage(systemName: .postViewControllerInfoSymbolName),
             style: .done,
             target: self,
             action: #selector(didTapButton)
@@ -38,11 +38,11 @@ class PostVC: UIViewController {
     }
     
     func showModal() {
-        let infoVC = InfoVC()
+        let infoVC = InfoViewController()
         present(infoVC, animated: true, completion: nil)
     }
-        
+    
     @objc func didTapButton() {
-       showModal()        
+        showModal()
     }
 }

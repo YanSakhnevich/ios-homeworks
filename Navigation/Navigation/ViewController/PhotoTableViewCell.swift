@@ -32,7 +32,7 @@ class PhotoTableViewCell: UITableViewCell {
         
         return photosLabel
     }()
-
+    
     // MARK: Arrow
     private lazy var arrowImage: UIImageView = {
         let arrowImage = UIImageView()
@@ -101,7 +101,7 @@ class PhotoTableViewCell: UITableViewCell {
         
         return previewImage4
     }()
-
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
@@ -120,7 +120,7 @@ class PhotoTableViewCell: UITableViewCell {
             
             previewImage1.widthAnchor.constraint(greaterThanOrEqualToConstant: (contentView.frame.width - Constants.photoTableViewPreviewImageConst) / 4),
             previewImage1.heightAnchor.constraint(equalTo: previewImage1.widthAnchor),
-
+            
             previewImage2.widthAnchor.constraint(greaterThanOrEqualToConstant: (contentView.frame.width - Constants.photoTableViewPreviewImageConst) / 4),
             previewImage2.heightAnchor.constraint(equalTo: previewImage2.widthAnchor),
             
@@ -132,7 +132,7 @@ class PhotoTableViewCell: UITableViewCell {
             
         ])
     }
-
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

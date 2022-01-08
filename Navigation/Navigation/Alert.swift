@@ -17,7 +17,7 @@ struct Alert {
             style: .destructive,
             handler: {action in print("You taped on CANCEL button, see you soon")})
         )
-       
+        
         vc.present(alert, animated: true)
     }
     

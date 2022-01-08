@@ -1,11 +1,11 @@
 import UIKit
 import StorageService
 
-class ProfileVC: UIViewController {
+class ProfileViewController: UIViewController {
     
     var service: UserService
     var fullName: String
-
+    
     
     init(service: UserService, fullName: String) {
         self.service = service
@@ -17,10 +17,10 @@ class ProfileVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
 #if DEBUG
         view.backgroundColor = .red
 #else
@@ -59,7 +59,7 @@ class ProfileVC: UIViewController {
 }
 
 // MARK: Extention
-extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 1 {

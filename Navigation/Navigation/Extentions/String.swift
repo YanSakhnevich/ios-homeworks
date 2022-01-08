@@ -12,5 +12,5 @@ extension String {
     static let vkIconName = "vk_logo"
     static let logInButtonImageName = "blue_pixel"
     static let infoVCButtonName = "Try it"
-    static let postVCInfoSymbolName = "info.circle"
+    static let postViewControllerInfoSymbolName = "info.circle"
 }
