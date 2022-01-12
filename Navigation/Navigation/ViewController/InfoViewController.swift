@@ -1,7 +1,7 @@
 import UIKit
 
-class InfoVC: UIViewController {
-
+class InfoViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .tintColor
@@ -24,9 +24,9 @@ class InfoVC: UIViewController {
             for: .touchUpInside
         )
     }
-
+    
     @objc func didTapButton() {
         Alert.showIncompleteFormAlert(on: self)
     }
-
+    
 }

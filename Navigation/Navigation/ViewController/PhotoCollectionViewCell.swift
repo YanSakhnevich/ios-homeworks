@@ -10,8 +10,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         setupConstraints()
     }
     
-
- 
     // MARK: Photo image
     private lazy var photo: UIImageView = {
         let photo = UIImageView()
@@ -20,13 +18,12 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         return photo
     }()
     
-    
     // MARK: Cell config
     public func configureCell(image: UIImage) {
         self.photo.image = image
     }
     
-// MARK: Constraints
+    // MARK: Constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             photo.topAnchor.constraint(equalTo: self.topAnchor),
@@ -35,8 +32,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             photo.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
     }
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

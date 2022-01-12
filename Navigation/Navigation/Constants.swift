@@ -20,7 +20,7 @@ struct Constants {
     static let statusLabelColor: UIColor = .gray
     static let statusLabelBottomAnchor: CGFloat = 6
     static let statusLabelNumberOfLines: Int = 2
-
+    
     static let statusTextFieldFont: UIFont = UIFont.systemFont(ofSize: 15, weight: .regular)
     static let statusTextFieldCornerRadius: CGFloat = 12
     static let statusTextFieldColor: UIColor = .black
@@ -39,12 +39,12 @@ struct Constants {
     static let showStatusShadowOpacity: Float = 0.7
     static let showStatusButtonHeight: CGFloat = 50.0
     static let showStatusButtonWidth: CGFloat = 345.0
-
+    
     
     static let padding: CGFloat = 16
     static let labelPadding: CGFloat = 16
     static let statusLabelPadding: CGFloat = 80
-
+    
     static let textPadding: CGFloat = 27
     static let showStatusButtonPadding: CGFloat = 10
     static let contentViewHeight: CGFloat = 220
@@ -57,6 +57,6 @@ struct Constants {
     static let photoTableViewConst: CGFloat = 12
     static let photoTableViewArrowImageConst: CGFloat = 40
     static let photoTableViewPreviewImageConst: CGFloat = 16
-
-
+    
+    
 }

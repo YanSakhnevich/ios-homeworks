@@ -1,8 +1,8 @@
 import UIKit
 
-class FeedVC: UIViewController {
+class FeedViewController: UIViewController {
     
-    private let titlePostVC = Post(title: "Some Post")
+    private let titlePostViewController = Post(title: "Some Post")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class FeedVC: UIViewController {
         stack.toAutoLayout()
         setupLayout()
     }
-   
+    
     var stack = UIStackView()
     
     func configureStack() {
@@ -37,7 +37,7 @@ class FeedVC: UIViewController {
     }
     
     @objc func didTapButton() {
-        let post = PostVC(titlePost: titlePostVC.title)
+        let post = PostViewController(titlePost: titlePostViewController.title)
         navigationController?.pushViewController(post, animated: true)
     }
     

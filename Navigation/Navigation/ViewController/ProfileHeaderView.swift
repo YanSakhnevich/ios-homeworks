@@ -3,7 +3,7 @@ import SnapKit
 
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
-        
+    
     private(set) var statusText: String = ""
     
     static let identifire = "ProfileHeaderView"
@@ -18,7 +18,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             showStatusButton
         ]
         contentView.addSubviews(views)
-
+        
         setupConstraints()
         
     }
@@ -126,7 +126,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return statusTextField
     }()
     
- 
+    
     
     // MARK: Button Action
     @objc func pressButton(){
@@ -168,16 +168,16 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             make.top.equalTo(contentView.snp.top).offset(Constants.padding)
             make.size.equalTo(CGSize(width: Constants.logoImageViewWidth, height: Constants.logoImageViewWidth))
         }
-
+        
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalTo(contentView.snp.centerX)
             make.top.equalTo(contentView.snp.top).offset(Constants.padding)
         }
-
+        
         statusLabel.snp.makeConstraints { make in
             make.leading.equalTo(nameLabel.snp.leading)
         }
-
+        
         statusTextField.snp.makeConstraints { make in
             make.height.equalTo(Constants.statusTextFieldHeight)
             make.trailing.equalTo(contentView.snp.trailing).offset(-Constants.padding)
@@ -185,7 +185,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
             make.leading.equalTo(statusLabel.snp.leading)
             make.bottom.equalTo(showStatusButton.snp.top).offset(-Constants.statusTextFieldBottomAnchor)
         }
-
+        
         showStatusButton.snp.makeConstraints { make in
             make.height.equalTo(Constants.showStatusButtonHeight)
             make.leading.equalTo(contentView.snp.leading).offset(Constants.padding)

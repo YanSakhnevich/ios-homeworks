@@ -34,7 +34,7 @@ class PhotoViewController: UIViewController {
     // MARK: Constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-                        
+            
             photosCollection.topAnchor.constraint(equalTo: view.topAnchor),
             photosCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             photosCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
