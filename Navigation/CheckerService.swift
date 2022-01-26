@@ -13,6 +13,7 @@ class CheckerService: CheckerServiceProtocol {
     private init() {}
     
     func checkLoginPasswordExists(loginText: String, passwordText: String) -> Bool {
+        
         guard login.hash == loginText.hash, password.hash == passwordText.hash else { return false }
         
         return true
