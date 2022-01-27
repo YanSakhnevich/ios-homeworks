@@ -16,9 +16,7 @@ class FeedViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         let myNotificationCenter = NotificationCenter.default
-        myNotificationCenter.addObserver(self, selector: #selector(passwordIsRight), name: Notification.Name("passwordIsRight"), object: nil)
-        myNotificationCenter.addObserver(self, selector: #selector(passwordIsNotRight), name: Notification.Name("passwordIsNotRight"), object: nil)
-        
+        myNotificationCenter.addObserver(self, selector: #selector(passwordIsRight), name: Notification.Name("checkingPassword"), object: nil)
         
         let views: [UIView] = [
             sendTextButton,
@@ -51,6 +49,7 @@ class FeedViewController: UIViewController {
     
     private lazy var sendTextButton: CustomButton = {
         let button = CustomButton(title: "Send password for check", titleColor: .white) {
+            MyModel.shared.check(gettingPassword: self.textForSendingTextField.text ?? "")
         }
         return button
     }()
@@ -62,17 +61,10 @@ class FeedViewController: UIViewController {
     }()
     
     @objc
-    private func passwordIsRight() {
+    private func passwordIsRight(notification: Notification) {
+        guard let check = notification.object as? Bool else { return }
         textForSendingTextField.layer.borderWidth = 3
-        textForSendingTextField.layer.borderColor = UIColor.green.cgColor
-
-        
-    }
-
-    @objc
-    private func passwordIsNotRight() {
-        textForSendingTextField.layer.borderWidth = 3
-        textForSendingTextField.layer.borderColor = UIColor.red.cgColor
+        textForSendingTextField.layer.borderColor = check ? UIColor.green.cgColor : UIColor.red.cgColor
     }
     
     

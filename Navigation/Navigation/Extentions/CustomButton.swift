@@ -25,9 +25,6 @@ final class CustomButton: UIButton {
     @objc
     private func tapForCheck() {
         self.buttonAction()
-        if MyModel.shared.gettingPassword != "" {
-            MyModel.shared.check()
-        }
     }
 
     required init?(coder: NSCoder) {

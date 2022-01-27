@@ -40,6 +40,6 @@ final class CustomTextField: UITextField {
     @objc
     private func inputText() {
         self.changeText()
-        MyModel.shared.gettingPassword = self.text ?? ""
+
     }
 }
