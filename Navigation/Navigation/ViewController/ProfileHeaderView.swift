@@ -75,23 +75,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     
     // MARK: Add showStatusButton
     lazy var showStatusButton: UIButton = {
-        let showStatusButton = UIButton()
-        showStatusButton.toAutoLayout()
-        showStatusButton.backgroundColor = Constants.showStatusButtonColor
-        showStatusButton.roundedButtonWithShadow(
-            corderRadius: Constants.showStatusButtonCornerRadius,
-            shadowOffset: Constants.showStatusShadowOffset,
-            shadowRadius: Constants.showStatusShadowRadius,
-            shadowColor: Constants.showStatusShadowColor,
-            shadowOpacity: Constants.showStatusShadowOpacity
-        )
-        showStatusButton.setTitle(.showStatusButtonText, for: .normal)
-        showStatusButton.setTitleColor(.lightGray, for: .highlighted)
-        showStatusButton.addTarget(self,
-                                   action: #selector(pressButton),
-                                   for: .touchUpInside
-        )
-        
+        let showStatusButton = CustomButton(title: .showStatusButtonText, titleColor: .white, buttonAction: pressButton)
         return showStatusButton
     }()
     

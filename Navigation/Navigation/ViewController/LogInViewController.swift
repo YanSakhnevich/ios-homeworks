@@ -74,23 +74,7 @@ class LogInViewController: UIViewController {
     
     // MARK: LogIn Button
     private lazy var logInButton: UIButton = {
-        
-        let logInButton = UIButton()
-        
-        logInButton.toAutoLayout()
-        
-        if let image = UIImage(named: .logInButtonImageName) {
-            logInButton.setBackgroundImage(image.image(alpha: 1), for: .normal)
-            logInButton.setBackgroundImage(image.image(alpha: 0.8), for: .selected)
-            logInButton.setBackgroundImage(image.image(alpha: 0.8), for: .highlighted)
-            logInButton.setBackgroundImage(image.image(alpha: 0.8), for: .disabled)
-        }
-        
-        logInButton.setTitle(.logInButton, for: .normal)
-        logInButton.setTitleColor(.white, for: .normal)
-        logInButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
-        logInButton.layer.cornerRadius = 10
-        logInButton.clipsToBounds = true
+        let logInButton = CustomButton(title: .logInButton, titleColor: .white, buttonAction: loginButtonPressed)
         return logInButton
         
     }()
