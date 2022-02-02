@@ -2,8 +2,8 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private let titlePostViewController = Post(title: "Some Post")
-    
+    weak var feedCoordinator: FeedCoordinator?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemMint
@@ -69,8 +69,7 @@ class FeedViewController: UIViewController {
     
     
     @objc func didTapButton() {
-        let post = PostViewController(titlePost: titlePostViewController.title)
-        navigationController?.pushViewController(post, animated: true)
+        feedCoordinator?.pushToPost()
     }
     
     
@@ -95,11 +94,6 @@ class FeedViewController: UIViewController {
         }
         
     }
-}
-
-
-struct Post {
-    let title: String
 }
 
 

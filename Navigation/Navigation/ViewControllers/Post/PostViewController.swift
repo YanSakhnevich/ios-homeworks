@@ -3,6 +3,8 @@ import UIKit
 class PostViewController: UIViewController {
     private let titlePost: String
     
+    var toInfoViewController: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,12 +39,7 @@ class PostViewController: UIViewController {
         )
     }
     
-    func showModal() {
-        let infoVC = InfoViewController()
-        present(infoVC, animated: true, completion: nil)
-    }
-    
     @objc func didTapButton() {
-        showModal()
+        toInfoViewController?()
     }
 }

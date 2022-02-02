@@ -13,4 +13,5 @@ extension String {
     static let logInButtonImageName = "blue_pixel"
     static let infoVCButtonName = "Try it"
     static let postViewControllerInfoSymbolName = "info.circle"
+    static let titlePostViewController = "Some post"
 }

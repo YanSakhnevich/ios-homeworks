@@ -6,9 +6,11 @@ protocol LogInViewControllerDelegate: AnyObject {
 
 class LogInViewController: UIViewController {
     
+    var dataFromLogInViewController: ((UserService,String) -> Void)?
+    var toProfileViewController: (() -> Void)?
     weak var checkerDelegate: LogInViewControllerDelegate?
-    
-    
+    let logInImage = UIImage(systemName: "person")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -171,11 +173,7 @@ class LogInViewController: UIViewController {
         )
         currentUser = CurrentService(user: user)
 #endif
-        let profileVC = ProfileViewController(service: currentUser, fullName: fullName)
-        
-        navigationController?.pushViewController(profileVC, animated: false)
-        navigationController?.setViewControllers([profileVC], animated: true)
-        
+        dataFromLogInViewController?(currentUser,fullName)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
