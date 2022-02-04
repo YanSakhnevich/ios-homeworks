@@ -9,20 +9,22 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         photosCollection.dataSource = self
         photosCollection.delegate = self
         facade.subscribe(self)
-
-        view.addSubview(photosCollection)
-        navigationController?.navigationBar.isHidden = false
-        self.title = "Photo Gallery"
-        
         facade.addImagesWithTimer(time: 1, repeat: 10, userImages: photosArray)
         setupConstraints()
     }
     
     deinit {
         facade.rechargeImageLibrary()
+    }
+    
+    func setupView() {
+        view.addSubview(photosCollection)
+        navigationController?.navigationBar.isHidden = false
+        self.title = "Photo Gallery"
     }
     
     // MARK: Photo CollectionView

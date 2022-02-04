@@ -8,17 +8,7 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = titlePost
-        configureItems()
-        view.backgroundColor = .systemGreen
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .systemBackground
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
+        setupView()
     }
     
     init(titlePost: String) {
@@ -41,5 +31,18 @@ class PostViewController: UIViewController {
     
     @objc func didTapButton() {
         toInfoViewController?()
+    }
+    
+    private func setupView() {
+        title = titlePost
+        configureItems()
+        view.backgroundColor = UIColor.rgb(218, 143, 255, 1)
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemBackground
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 }

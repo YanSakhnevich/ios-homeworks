@@ -8,8 +8,20 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     
     static let identifire = "ProfileHeaderView"
     
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        addSetupView()
+        statusTextField.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: Add Subviews
-    func addView() {
+    func addSetupView() {
+        contentView.backgroundColor = .systemGray6
+
         let views: [UIView] = [
             logoImageView,
             nameLabel,
@@ -20,24 +32,8 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         contentView.addSubviews(views)
         
         setupConstraints()
-        
     }
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        
-        contentView.backgroundColor = .systemGray6
-        addView()
-        statusTextField.delegate = self
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
+
     // MARK: Add logoImageView
     lazy var logoImageView: UIImageView = {
         let logoImageView = UIImageView(image: Constants.logoImage)
@@ -79,8 +75,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return showStatusButton
     }()
     
-    
-    
     // MARK: Add statusTextField
     lazy var statusTextField: UITextField = {
         
@@ -109,8 +103,6 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         
         return statusTextField
     }()
-    
-    
     
     // MARK: Button Action
     @objc func pressButton(){

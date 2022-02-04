@@ -2,33 +2,32 @@ import UIKit
 
 class InfoViewController: UIViewController {
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .tintColor
-        view.isOpaque = false
         
-        let button = UIButton(frame: CGRect(
-            x: 0,
-            y: 0,
-            width: 200,
-            height: 50)
-        )
-        view.addSubview(button)
-        button.center = view.center
-        button.backgroundColor = .systemGray
-        button.setTitle(.infoVCButtonName, for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(
-            self,
-            action: #selector(didTapButton),
-            for: .touchUpInside
-        )
+        setupView()
+        setupConstraints()
     }
     
-    @objc func didTapButton() {
-        Alert.showIncompleteFormAlert(on: self)
+    private lazy var tryButton: UIButton = {
+        let button = CustomButton(title: .infoVCButtonName, titleColor: .white) {
+            Alert.showIncompleteFormAlert(on: self)
+        }
+        
+        return button
+    }()
+    
+    private func setupView() {
+        view.backgroundColor = UIColor.rgb(255, 55, 95, 1)
+        view.isOpaque = false
+        view.addSubview(tryButton)
+    }
+    
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            tryButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            tryButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
     }
     
 }

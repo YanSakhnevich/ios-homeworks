@@ -7,6 +7,11 @@ class PhotoTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
+        setupView()
+        setupConstraints()
+    }
+    
+    private func setupView() {
         let arraySW: [UIView] = [
             photosLabel,
             arrowImage,
@@ -19,9 +24,7 @@ class PhotoTableViewCell: UITableViewCell {
             previewImage3,
             previewImage4
         )
-        setupConstraints()
     }
-    
     // MARK: Label
     private lazy var photosLabel: UILabel = {
         let photosLabel = UILabel()

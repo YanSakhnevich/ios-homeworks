@@ -33,9 +33,6 @@ class ProfileViewController: UIViewController {
         
         postTableView.dataSource = self
         postTableView.delegate = self
-        
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,8 +107,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-//            let photoVC = PhotoViewController()
-//            navigationController?.pushViewController(photoVC, animated: true)
             toPhotoViewController?()
         }
     }
