@@ -43,6 +43,7 @@
 		C8A5DF8A27851EFC00AFA00A /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5DF8927851EFC00AFA00A /* LoginInspector.swift */; };
 		C8A5DF8C278539AE00AFA00A /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5DF8B278539AE00AFA00A /* LoginFactory.swift */; };
 		C8A5DF8E2789162900AFA00A /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A5DF8D2789162900AFA00A /* MyLoginFactory.swift */; };
+		C8A6934727B3CD4B0061C4F2 /* PhotosArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A6934627B3CD4B0061C4F2 /* PhotosArray.swift */; };
 		C8BB397627818FA9005D6AD3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB397527818FA9005D6AD3 /* User.swift */; };
 		C8BB397827818FEE005D6AD3 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB397727818FEE005D6AD3 /* UserService.swift */; };
 		C8BB397A2781921D005D6AD3 /* CurrentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BB39792781921D005D6AD3 /* CurrentService.swift */; };
@@ -148,6 +149,7 @@
 		C8A5DF8927851EFC00AFA00A /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
 		C8A5DF8B278539AE00AFA00A /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
 		C8A5DF8D2789162900AFA00A /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
+		C8A6934627B3CD4B0061C4F2 /* PhotosArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosArray.swift; sourceTree = "<group>"; };
 		C8BB397527818FA9005D6AD3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C8BB397727818FEE005D6AD3 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		C8BB39792781921D005D6AD3 /* CurrentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentService.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				C814A66027A159EE00D4AE06 /* MyModel.swift */,
 				C8BB397527818FA9005D6AD3 /* User.swift */,
 				C8BB709F2746D0AA005E2C5C /* PhotoGalleryArray.swift */,
+				C8A6934627B3CD4B0061C4F2 /* PhotosArray.swift */,
 				C89FC0FA27A7F86D0000FCC1 /* Helpers */,
 				C89FC0F927A7F8170000FCC1 /* Extension */,
 			);
@@ -730,6 +733,7 @@
 				C89FC10E27A803A60000FCC1 /* FeedCoordinator.swift in Sources */,
 				C8BB70A22746D706005E2C5C /* PhotoViewController.swift in Sources */,
 				C8A5DF8C278539AE00AFA00A /* LoginFactory.swift in Sources */,
+				C8A6934727B3CD4B0061C4F2 /* PhotosArray.swift in Sources */,
 				C8BB397627818FA9005D6AD3 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

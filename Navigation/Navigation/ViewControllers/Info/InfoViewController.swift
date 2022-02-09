@@ -8,7 +8,7 @@ class InfoViewController: UIViewController {
         setupView()
         setupConstraints()
     }
-    
+
     private lazy var tryButton: UIButton = {
         let button = CustomButton(title: .infoVCButtonName, titleColor: .white) {
             Alert.showIncompleteFormAlert(on: self)
