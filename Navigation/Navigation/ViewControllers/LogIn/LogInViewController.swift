@@ -6,19 +6,15 @@ protocol LogInViewControllerDelegate: AnyObject {
 
 class LogInViewController: UIViewController {
     
+    var dataFromLogInViewController: ((UserService,String) -> Void)?
+    var toProfileViewController: (() -> Void)?
     weak var checkerDelegate: LogInViewControllerDelegate?
-    
-    
+    let logInImage = UIImage(systemName: "person")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.tabBarController?.tabBar.backgroundColor = .systemGray6
-        
         setupViews()
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
-        self.view.addGestureRecognizer(tapGesture)
+        setupTapGesture()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -133,7 +129,8 @@ class LogInViewController: UIViewController {
     
     // MARK: Setup View
     private func setupViews() {
-        
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.tabBarController?.tabBar.backgroundColor = .systemGray6
         view.backgroundColor = .white
         view.addSubview(loginScrollView)
         loginScrollView.addSubview(contentView)
@@ -143,12 +140,15 @@ class LogInViewController: UIViewController {
             vkIcon,
             logInButton
         ]
-        
         contentView.addSubviews(views)
-        
         setupConstraints()
     }
     
+    private func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+
     //MARK: Login button action
     @objc private func loginButtonPressed() {
         
@@ -171,11 +171,7 @@ class LogInViewController: UIViewController {
         )
         currentUser = CurrentService(user: user)
 #endif
-        let profileVC = ProfileViewController(service: currentUser, fullName: fullName)
-        
-        navigationController?.pushViewController(profileVC, animated: false)
-        navigationController?.setViewControllers([profileVC], animated: true)
-        
+        dataFromLogInViewController?(currentUser,fullName)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

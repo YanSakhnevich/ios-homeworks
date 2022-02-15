@@ -3,9 +3,10 @@ import StorageService
 
 class ProfileViewController: UIViewController {
     
+    
     var service: UserService
     var fullName: String
-    
+    var toPhotoViewController: (() -> Void)?
     
     init(service: UserService, fullName: String) {
         self.service = service
@@ -32,7 +33,16 @@ class ProfileViewController: UIViewController {
         
         postTableView.dataSource = self
         postTableView.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     
@@ -97,8 +107,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let photoVC = PhotoViewController()
-            navigationController?.pushViewController(photoVC, animated: true)
+            toPhotoViewController?()
         }
     }
     

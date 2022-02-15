@@ -9,14 +9,7 @@ class PostTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let views: [UIView] = [
-            postTitle,
-            postImage,
-            postDescription,
-            postLikes,
-            postViews
-        ]
-        contentView.addSubviews(views)
+        setupView()
         setupConstraints()
     }
     
@@ -96,6 +89,17 @@ class PostTableViewCell: UITableViewCell {
         return postViews
     }()
     
+    // MARK: SetupView
+    private func setupView() {
+        let views: [UIView] = [
+            postTitle,
+            postImage,
+            postDescription,
+            postLikes,
+            postViews
+        ]
+        contentView.addSubviews(views)
+    }
     
     // MARK: Constraints
     private func setupConstraints(){
@@ -143,8 +147,7 @@ extension PostTableViewCell {
                 sourceImage: image,
                 filter: filter,
                 completion: { image in
-                    self.postImage.image = image
-                }
+                    self.postImage.image = image }
             )
         }
     }
