@@ -10,7 +10,8 @@ class InfoViewController: UIViewController {
     }
 
     private lazy var tryButton: UIButton = {
-        let button = CustomButton(title: .infoVCButtonName, titleColor: .white) {
+        let button = CustomButton(title: .infoVCButtonName, titleColor: .white) { [weak self] in
+            guard let self = self else { return }
             Alert.showIncompleteFormAlert(on: self)
         }
         
