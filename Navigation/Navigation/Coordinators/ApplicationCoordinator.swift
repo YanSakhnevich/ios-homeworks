@@ -30,7 +30,7 @@ class ApplicationCoordinator: BaseCoordinator, Coordinator {
         addDependency(logInCoordinator)
         logInCoordinator.start()
         
-        _ = createTabBar()
+//        _ = createTabBar()
         
     }
     private func initWindow () {

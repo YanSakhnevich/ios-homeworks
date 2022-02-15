@@ -2,7 +2,7 @@ import UIKit
 
 final class FeedCoordinator: Coordinator {
 
-    private weak var navigationController: UINavigationController?
+    private var navigationController: UINavigationController
     let myFactory: ViewControllerFactoryProtocol = ViewControllerCreationFactory()
     
     init(navigationController: UINavigationController) {
@@ -12,7 +12,7 @@ final class FeedCoordinator: Coordinator {
     func start() {
         let model = FeedViewModel()
         model.feedCoordinator = self
-        let viewController = myFactory.viewController(for: .feed(viewModel: model)) as! FeedViewController
+        guard let viewController = myFactory.viewController(for: .feed(viewModel: model)) as? FeedViewController else { return }
         let feedImage = UIImage(systemName: "house")
         viewController.title = "Feed"
         viewController.tabBarItem = UITabBarItem(
@@ -20,11 +20,11 @@ final class FeedCoordinator: Coordinator {
             image: feedImage,
             selectedImage: nil
         )
-        navigationController?.setViewControllers([viewController], animated: false)
+        navigationController.setViewControllers([viewController], animated: false)
     }
     
     func pushToPost() {
-        let postCoordinator = PostCoordinator(navigationController: navigationController!)
+        let postCoordinator = PostCoordinator(navigationController: navigationController)
         postCoordinator.start()
     }
 }

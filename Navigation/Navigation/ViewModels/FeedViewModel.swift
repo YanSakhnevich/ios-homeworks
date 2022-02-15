@@ -1,9 +1,19 @@
 import UIKit
 
-class FeedViewModel {
+protocol FeedViewModelDelegateProtocol {
+    func textFieldDidChanged(password: String) -> Bool
+}
+
+class FeedViewModel: FeedViewModelDelegateProtocol {
     
+    func textFieldDidChanged(password: String) -> Bool {
+        MyModel.shared.check(gettingPassword: password)
+    }
+        
     var onStateChanged: ((State) -> Void)?
     weak var feedCoordinator: FeedCoordinator?
+
+    
 
     private(set) var state: State = .initial {
         didSet {
@@ -18,26 +28,12 @@ class FeedViewModel {
             feedCoordinator?.pushToPost()
             
         case let .sendTextButtonTapped(textFieldString):
-            MyModel.shared.check(gettingPassword: textFieldString)
+            let check = textFieldDidChanged(password: textFieldString)
+            state = .passwordIsCompared(check)
             
         case .viewIsReady:
-            createNotificationCenter()
             state = .initial
         }
-    }
-}
-
-extension FeedViewModel {
-    
-    func createNotificationCenter() {
-        let myNotificationCenter = NotificationCenter.default
-        myNotificationCenter.addObserver(self, selector: #selector(passwordIsRight), name: Notification.Name("checkingPassword"), object: nil)
-    }
-    
-    @objc
-    private func passwordIsRight(notification: Notification) {
-        guard let check = notification.object as? Bool else { return }
-        state = .notificationCenterCreated(check)
     }
 }
 
@@ -51,7 +47,7 @@ extension FeedViewModel {
     
     enum State {
         case initial
-        case notificationCenterCreated(Bool)
+        case passwordIsCompared(Bool)
     }
 }
 

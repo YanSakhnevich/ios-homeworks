@@ -5,7 +5,7 @@ final class ProfileCoordinator: Coordinator {
     var service: UserService
     var fullName: String
 
-    private weak var navigationController: UINavigationController?
+    private var navigationController: UINavigationController
     
 
     init(navigationController: UINavigationController, service: UserService, fullName: String) {
@@ -17,11 +17,11 @@ final class ProfileCoordinator: Coordinator {
     func start() {
         let viewController = ProfileViewController(service: service, fullName: fullName)
         viewController.toPhotoViewController = toPhotoViewController
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func toPhotoViewController() {
-        let photoCoordinator = PhotoCoordinator(navigationController: navigationController!)
+        let photoCoordinator = PhotoCoordinator(navigationController: navigationController)
         photoCoordinator.start()
     }
     
