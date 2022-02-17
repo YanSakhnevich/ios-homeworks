@@ -2,7 +2,7 @@ import UIKit
 
 final class InfoCoordinator: Coordinator {
 
-    private weak var navigationController: UINavigationController?
+    private var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -10,7 +10,7 @@ final class InfoCoordinator: Coordinator {
 
     func start() {
         let viewController = InfoViewController()
-        navigationController?.present(viewController, animated: true, completion: nil)
+        navigationController.present(viewController, animated: true, completion: nil)
 
     }
 }

@@ -3,7 +3,7 @@ import UIKit
 final class PostCoordinator: Coordinator {
     var onFinish: (() -> Void)?
 
-    private weak var navigationController: UINavigationController?
+    private var navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -12,12 +12,12 @@ final class PostCoordinator: Coordinator {
     func start() {
         let viewController = PostViewController(titlePost: .titlePostViewController)
         viewController.toInfoViewController = showModalInfo
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func showModalInfo() {
 
-        let infoCoordinator = InfoCoordinator(navigationController: navigationController!)
+        let infoCoordinator = InfoCoordinator(navigationController: navigationController)
         infoCoordinator.start()
     }
 }

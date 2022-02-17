@@ -10,12 +10,16 @@ class LogInViewController: UIViewController {
     var toProfileViewController: (() -> Void)?
     weak var checkerDelegate: LogInViewControllerDelegate?
     let logInImage = UIImage(systemName: "person")
+    let globalQueue = DispatchQueue.global()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupTapGesture()
     }
+    private let spinnerView = UIActivityIndicatorView(style: .medium)
+
     
     override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -43,6 +47,8 @@ class LogInViewController: UIViewController {
     
     // MARK: LoginFromStackView
     private lazy var loginFormStackView: UIStackView = {
+        spinnerView.toAutoLayout()
+        passwordTF.addSubview(spinnerView)
         loginFormStackView = UIStackView(arrangedSubviews: [loginTF, passwordTF])
         loginFormStackView.toAutoLayout()
         loginFormStackView.axis = .vertical
@@ -71,6 +77,36 @@ class LogInViewController: UIViewController {
     // MARK: LogIn Button
     private lazy var logInButton: UIButton = {
         let logInButton = CustomButton(title: .logInButton, titleColor: .white, buttonAction: loginButtonPressed)
+        return logInButton
+        
+    }()
+    
+    private lazy var bruteForce = BruteForce()
+    
+    private lazy var item = DispatchWorkItem(qos: .userInteractive, flags: .enforceQoS) {
+        DispatchQueue.main.async {
+            self.spinnerView.startAnimating()
+        }
+        
+        self.bruteForce.bruteForce(passwordToUnlock: "1dsg") { (password) in
+            DispatchQueue.main.async {
+                self.passwordTF.text = password
+                self.passwordTF.isSecureTextEntry = false
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.spinnerView.stopAnimating()
+        }
+    }
+    
+    // MARK: CheckPassword Button
+    private lazy var checkPasswordButton: UIButton = {
+        let logInButton = CustomButton(title: "Подобрать пароль", titleColor: .white) {
+            
+            self.globalQueue.async(execute: self.item)
+                
+        }
         return logInButton
         
     }()
@@ -135,10 +171,12 @@ class LogInViewController: UIViewController {
         view.addSubview(loginScrollView)
         loginScrollView.addSubview(contentView)
         
+        
         let views: [UIView] = [
             loginFormStackView,
             vkIcon,
-            logInButton
+            logInButton,
+            checkPasswordButton
         ]
         contentView.addSubviews(views)
         setupConstraints()
@@ -227,6 +265,16 @@ class LogInViewController: UIViewController {
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.leadingMargin),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constants.trailingMargin),
             logInButton.heightAnchor.constraint(equalToConstant: Constants.logInButtonHeight),
+            
+            spinnerView.topAnchor.constraint(equalTo: passwordTF.topAnchor, constant: 15),
+            spinnerView.trailingAnchor.constraint(equalTo: passwordTF.trailingAnchor, constant: -5),
+            
+            checkPasswordButton.heightAnchor.constraint(equalToConstant: Constants.logInButtonHeight),
+            checkPasswordButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 20),
+            checkPasswordButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.leadingMargin),
+            checkPasswordButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constants.trailingMargin)
+            
+            
             
         ])
     }
