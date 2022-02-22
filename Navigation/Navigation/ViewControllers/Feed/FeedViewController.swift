@@ -1,10 +1,11 @@
 import UIKit
 
+
 class FeedViewController: UIViewController {
     
     lazy var stack = UIStackView()
     private let viewModel: FeedViewModel
-    
+        
     init(viewModel: FeedViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -35,7 +36,7 @@ class FeedViewController: UIViewController {
                 self.configureStack()
                 self.setupLayout()
                 
-            case let .notificationCenterCreated(check):
+            case let .passwordIsCompared(check):
                 self.markTextField(check: check)
 
             }
@@ -44,13 +45,13 @@ class FeedViewController: UIViewController {
     
     
     func configureStack() {
-        let _ = ["First button", " Second button "].map { [weak self] txt in
+        let _ = ["First button", " Second button "].map { txt in
             let button = CustomButton(title: txt, titleColor: .white, buttonAction: didTapButton)
-            self?.stack.addArrangedSubview(button)
-            self?.stack.axis = .vertical
-            self?.stack.distribution = .fillProportionally
-            self?.stack.spacing = 10
-            self?.stack.toAutoLayout()
+            self.stack.addArrangedSubview(button)
+            self.stack.axis = .vertical
+            self.stack.distribution = .fillProportionally
+            self.stack.spacing = 10
+            self.stack.toAutoLayout()
         }
     }
     
@@ -66,8 +67,8 @@ class FeedViewController: UIViewController {
     
     
     private lazy var sendTextButton: CustomButton = {
-        let button = CustomButton(title: "Send password for check", titleColor: .white) {
-            
+        let button = CustomButton(title: "Send password for check", titleColor: .white) { [ weak self ] in
+            guard let self = self else { return }
             let textFieldString = self.textForSendingTextField.text ?? ""
             self.viewModel.send(.sendTextButtonTapped(textFieldString))
 

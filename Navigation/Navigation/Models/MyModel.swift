@@ -1,6 +1,8 @@
 import Foundation
 
 class MyModel {
+    var receiveFromFeedViewModel: FeedViewModelDelegateProtocol?
+    
 
     static let shared = MyModel()
 
@@ -8,8 +10,9 @@ class MyModel {
 
     init() {}
     
-    func check(gettingPassword: String) {
-        let myNotificationCenter = NotificationCenter.default
-        myNotificationCenter.post(name: Notification.Name("checkingPassword"), object: gettingPassword == password)
+    func check(gettingPassword: String) -> Bool {
+        guard gettingPassword == password else { return false }
+      
+        return true
     }
 }

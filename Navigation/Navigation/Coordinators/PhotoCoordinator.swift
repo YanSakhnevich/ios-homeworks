@@ -2,7 +2,7 @@ import UIKit
 
 final class PhotoCoordinator: Coordinator {
 
-    private weak var navigationController: UINavigationController?    
+    private var navigationController: UINavigationController   
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -10,6 +10,6 @@ final class PhotoCoordinator: Coordinator {
 
     func start() {
         let viewController = PhotoViewController()
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

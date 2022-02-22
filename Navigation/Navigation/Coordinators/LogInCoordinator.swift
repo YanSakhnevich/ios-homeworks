@@ -2,7 +2,7 @@ import UIKit
 
 final class LogInCoordinator: Coordinator {
     
-    private weak var navigationController: UINavigationController?
+    private var navigationController: UINavigationController
     private let factory = MyLoginFactory()
     lazy var inspector = factory.makeLoginInspector()
 
@@ -22,11 +22,11 @@ final class LogInCoordinator: Coordinator {
         )
         viewController.dataFromLogInViewController = toProfileViewController(service:fullName:)
         viewController.checkerDelegate = inspector
-        navigationController?.setViewControllers([viewController], animated: false)
+        navigationController.setViewControllers([viewController], animated: false)
     }
     
     func toProfileViewController(service: UserService, fullName: String) {
-        let profileCoordinator = ProfileCoordinator(navigationController: navigationController!, service: service, fullName: fullName)
+        let profileCoordinator = ProfileCoordinator(navigationController: navigationController, service: service, fullName: fullName)
         profileCoordinator.start()
 
     }
