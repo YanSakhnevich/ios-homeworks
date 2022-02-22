@@ -10,7 +10,10 @@ struct Alert {
         alert.addAction(UIAlertAction(
             title: "Ok",
             style: .default,
-            handler: {action in print("Good, you taped OK button")})
+            handler: { action in
+                print("Good, you taped OK button")
+                
+            })
         )
         alert.addAction(UIAlertAction(
             title: "Cancel",
